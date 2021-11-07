@@ -22,7 +22,7 @@ class Calc{
             if (this.st2 == '') this.st2 = event.target.innerText.padStart(2, '0')
             else this.st2 = event.target.innerText
             if(event.target.innerText == '.' && this.nuq==0){
-                if (this.st.split('')[st.length-1]!=".") this.nuq++; this.st += this.st2
+                if (this.st.split('')[this.st.length-1]!=".") this.nuq++; this.st += this.st2
             }else if(event.target.innerText != '.'){
                 if (this.st[0]!="0"){
                     this.st += event.target.innerText
