@@ -24,7 +24,7 @@ class Calc{
             if(event.target.innerText == '.' && this.nuq==0){
                 if (this.st.split('')[this.st.length-1]!=".") this.nuq+=2; this.st += this.st2
             }else if(event.target.innerText != '.'){
-                if (this.st[0]!="0"){
+                if (this.st[0]!="0" && event.target.innerText != "." ){
                     this.st += event.target.innerText                   
                 }else {
                     if (this.st[1]==".") this.st += event.target.innerText
