@@ -22,11 +22,10 @@ class Calc{
             if (this.st2 == '') this.st2 = event.target.innerText.padStart(2, '0')
             else this.st2 = event.target.innerText
             if(event.target.innerText == '.' && this.nuq==0){
-                if (this.st.split('')[this.st.length-1]!=".") this.nuq++; this.st += this.st2
+                if (this.st.split('')[this.st.length-1]!=".") this.nuq+=2; this.st += this.st2
             }else if(event.target.innerText != '.'){
                 if (this.st[0]!="0"){
-                    this.st += event.target.innerText
-                    this.nuq=0
+                    this.st += event.target.innerText                   
                 }else {
                     if (this.st[1]==".") this.st += event.target.innerText
                     else this.st = event.target.innerText 
@@ -78,11 +77,10 @@ class Calc{
  del(){
     for (let i = 0; i<this.remove.length; i++){
         this.remove[i].addEventListener('click',(event) => {
-            this.nuq=0
-            this.st2 = ''
+            
             this.a = this.st.split('')
             if(event.target.innerText == 'R') this.a.pop()
-            else if (event.target.innerText == 'C') this.a = []; this.count = 0; this.oz = 0
+            else if (event.target.innerText == 'C') this.a = []; this.count = 0; this.oz = 0; this.st2 = ''; this.nuq = 0
             this.st = ''
             for (let i of this.a) this.st+=i
             this.input.value = this.st
@@ -105,12 +103,12 @@ class Calc{
         if (event.keyCode == 107 || event.keyCode == 109 || event.keyCode == 106 || event.keyCode == 111) {
             this.count++
             if (this.count > 1){
-                fn(event.target.value)
+                this.fn(event.target.value)
                 this.count=0
             }
         }
         if (event.keyCode == 13){
-            fn(event.target.value)
+            this.fn(event.target.value)
         }
     })
 }
